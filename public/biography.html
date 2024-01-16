@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biography Submission - Mohamed's Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Mohamed's Website</h1>
+    <nav>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="biography.html">Biography</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="nav-link" href="secure-documents.html">Documents</a>
+      <a class="nav-link active" href="sharing-section.html">Sharing Section</a>
+      <a class="nav-link active" href="app-integration.html">Our location</a>
+      <a class="nav-link active" href="module-12.html">Module 12</a>
+      <!-- Add more navigation links as necessary -->
+    </nav>
+  </header>
+
+  <main class="bio-main">
+    <section class="bio-form-container">
+      <h2>Biography Submission</h2>
+      <p>Please fill out the form below to submit your biographical note for the program.</p>
+      <form action="submit-biography.php" method="POST" class="bio-form">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="bio">Biographical Note:</label>
+          <textarea id="bio" name="bio" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+        <input type="submit" value="Submit Biography" class="submit-btn">
+        </div>
+        </form>
+        </section>
+        
+          </main>
+          <footer>
+            MohamedManssour © 2024
+          </footer>
+        </div>
+        </body>
+        </html>

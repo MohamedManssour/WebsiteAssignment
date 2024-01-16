@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sharing Section - Mohamed's Website</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional CSS for the file display area */
+    .file-display-container {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .uploaded-file {
+      width: 200px;
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .uploaded-file img {
+      max-width: 100%;
+      max-height: 120px;
+      margin-bottom: 10px;
+    }
+
+    .file-info {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Mohamed's Website</h1>
+      <nav>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="biography.html">Biography</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link active" href="secure-documents.html">Documents</a>
+        <a class="nav-link active" href="sharing-section.html">Sharing Section</a>
+        <a class="nav-link active" href="app-integration.html">Our location</a>
+        <a class="nav-link active" href="module-12.html">Module 12</a>
+      </nav>
+    </header>
+
+    <section class="public-upload-container">
+      <h2>Public File Upload</h2>
+      <form id="publicUploadForm" action="/upload" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="uploadedFile">Choose File:</label>
+          <input type="file" id="uploadedFile" name="uploadedFile" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="submit-btn">Upload</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Uploaded Files Display Area -->
+    <section class="file-display-container"></section>
+
+    <footer>
+      MohamedManssour © 2024
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const publicUploadForm = document.getElementById('publicUploadForm');
+      const fileDisplayContainer = document.querySelector('.file-display-container');
+
+      publicUploadForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(publicUploadForm);
+
+        fetch('/upload', {
+          method: 'POST',
+          body: formData
+        })
+          .then(response => response.json())
+          .then(fileInfo => {
+            // Handle the uploaded file information as needed
+            console.log(fileInfo);
+
+            // Display the file information (modify this based on your file details)
+            const fileDisplay = document.createElement('div');
+            fileDisplay.classList.add('uploaded-file');
+            fileDisplay.innerHTML = `
+              <img src="uploaded-image.jpg" alt="Uploaded Image">
+              <div class="file-info">
+                <p>File Name: ${fileInfo.fileName}</p>
+                <p>Uploaded by: ${fileInfo.uploadedBy}</p>
+                <p>Upload Date: ${fileInfo.uploadDate}</p>
+              </div>
+            `;
+
+            fileDisplayContainer.appendChild(fileDisplay);
+          })
+          .catch(error => console.error('Error:', error));
+
+        // Clear the file input (optional)
+        publicUploadForm.reset();
+      });
+    });
+  </script>
+</body>
+</html>

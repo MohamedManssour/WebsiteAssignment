@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Management - Mohamed's Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Mohamed's Website</h1>
+    <nav>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="biography.html">Biography</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="nav-link" href="secure-documents.html">Documents</a>
+      <a class="nav-link active" href="sharing-section.html">Sharing Section</a>
+      <a class="nav-link active" href="app-integration.html">Our location</a>
+      <a class="nav-link active" href="module-12.html">Module 12</a>
+      <!-- Add more navigation links as necessary -->
+    </nav>
+  </header>
+
+  <main class="contact-main">
+    <section class="contact-form-container">
+      <h2>Contact Management</h2>
+      <p>If you have any questions or need to reach out to the management, please use the form below.</p>
+      <form action="send-message.php" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="contact-name">Your Name:</label>
+          <input type="text" id="contact-name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-email">Your Email:</label>
+          <input type="email" id="contact-email" name="email" required>
+        </div>
+        <div class="form-group">
+        <label for="contact-subject">Subject:</label>
+        <input type="text" id="contact-subject" name="subject" required>
+        </div>
+        <div class="form-group">
+        <label for="contact-message">Message:</label>
+        <textarea id="contact-message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+        <input type="submit" value="Send Message" class="submit-btn">
+        </div>
+        </form>
+        </section>
+        <!-- ... existing HTML above ... -->
+
+<section class="contact-info-section">
+    <h2>Management Team</h2>
+    <table class="info-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mohamed Manssour</td>
+          <td>manssourmohamed832@gmail</td>
+          <td>(647) 866-8336</td>
+        </tr>
+        <!-- More rows as needed -->
+      </tbody>
+    </table>
+  </section>
+  
+  <!-- Contact form below -->
+  
+        
+          </main>
+          <footer>
+            MohamedManssour © 2024
+          </footer>
+        </div>
+        <script src="scripts.js"></script> <!-- Link to your JavaScript file if needed -->
+        </body>
+        </html>

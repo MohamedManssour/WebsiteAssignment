@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Integration - Mohamed's Website</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Additional CSS for the Google Maps section */
+    #mapContainer {
+      margin-top: 20px;
+    }
+
+    #map {
+      width: 100%;
+      height: 400px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Mohamed's Website</h1>
+      <nav>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="biography.html">Biography</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="nav-link active" href="secure-documents.html">Documents</a>
+        <a class="nav-link active" href="sharing-section.html">Sharing Section</a>
+        <a class="nav-link active" href="app-integration.html">Our location</a>
+        <a class="nav-link active" href="module-12.html">Module 12</a>
+      </nav>
+    </header>
+
+    <!-- Google Maps Integration -->
+    <section id="mapContainer">
+      <h2>Google Maps Integration</h2>
+      <div id="map"></div>
+    </section>
+
+    <footer>
+      MohamedManssour © 2024
+    </footer>
+  </div>
+
+  <script>
+    // Google Maps Integration
+    function initMap() {
+      // Set the coordinates for the map (replace with your desired location)
+      const mapCoordinates = { lat: 43.77444050016273, lng: -79.5021763246};
+
+      // Create a new map centered at the specified coordinates
+      const map = new google.maps.Map(document.getElementById('map'), {
+        center: mapCoordinates,
+        zoom: 14, // Adjust the zoom level as needed
+      });
+
+      // Add a marker at the specified coordinates
+      const marker = new google.maps.Marker({
+        position: mapCoordinates,
+        map: map,
+        title: 'York University', // Replace with your desired marker title
+      });
+    }
+  </script>
+  <!-- Include the Google Maps API script with your own API key -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeJ-nRkrkEkoRjPjH0k0eA1JTpbVMoBco&callback=initMap"></script>
+</body>
+</html>

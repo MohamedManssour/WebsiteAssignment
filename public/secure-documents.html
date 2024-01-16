@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documents - Mohamed's Website</title>
+<link rel="stylesheet" href="style.css">
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.getElementById('loginForm');
+    const loginContainer = document.getElementById('loginContainer');
+    const documentsContainer = document.getElementById('documentsContainer');
+
+    loginForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === 'mohamed' && password === 'manssour') {
+        // Correct credentials; hide the login form and show the documents
+        loginContainer.style.display = 'none';
+        documentsContainer.style.display = 'block';
+      } else {
+        // Incorrect credentials; alert the user
+        alert('Incorrect username or password.');
+      }
+    });
+
+    // Check if the user is already authenticated and show documents
+    if (sessionStorage.getItem('isAuthenticated')) {
+      loginContainer.style.display = 'none';
+      documentsContainer.style.display = 'block';
+    }
+
+    // If the "Documents" tab is clicked, check for authentication
+    const secureDocsTab = document.querySelector('.nav-link[href="secure-documents.html"]');
+    secureDocsTab.addEventListener('click', function (event) {
+      // Check if the user is already authenticated
+      if (!sessionStorage.getItem('isAuthenticated')) {
+        event.preventDefault(); // Prevent the default navigation behavior
+        loginContainer.style.display = 'block';
+        documentsContainer.style.display = 'none';
+        window.scrollTo(0, 0); // Scroll to the top of the page to show the login form
+      }
+    });
+
+    const contributionForm = document.getElementById('contributionForm');
+    const chatList = document.getElementById('chatList');
+
+    contributionForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const contentTitle = document.getElementById('contentTitle').value;
+      const contentDescription = document.getElementById('contentDescription').value;
+
+      // Create a new chat item
+      const chatItem = document.createElement('div');
+      chatItem.classList.add('chat-item');
+
+      // Set the content of the chat item
+      chatItem.innerHTML = `
+        <h3>${contentTitle}</h3>
+        <p>${contentDescription}</p>
+      `;
+
+      // Append the chat item to the chat list
+      chatList.appendChild(chatItem);
+
+      // Clear the form fields
+      contributionForm.reset();
+    });
+  });
+</script>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Mohamed's Website</h1>
+    <nav>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="biography.html">Biography</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="nav-link active" href="secure-documents.html">Documents</a>
+      <a class="nav-link active" href="sharing-section.html">Sharing Section</a>
+      <a class="nav-link active" href="app-integration.html">Our location</a>
+      <a class="nav-link active" href="module-12.html">Module 12</a>
+    </nav>
+  </header>
+  
+  <section class="chat-display-container">
+    <h2>Uploaded Chats</h2>
+    <div class="chat-list" id="chatList"> 
+  <main class="secure-docs-main">
+    <section class="login-container" id="loginContainer">
+      <h2>Login Required</h2>
+      <p>Please log in to access the documents.</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="submit-btn">Login</button>
+        </div>
+      </form>
+    </section>
+    <section class="secure-docs-container" id="documentsContainer" style="display:none;">
+      <h2>Protected Documents Archive</h2>
+      <div class="document-list">
+        <ul>
+          <li><a href="Documents/gintoki.jpg" target="_blank">Gintoki Image</a></li>
+          <li><a href="Documents/naruto.jpg" target="_blank">Naruto Image</a></li>
+          <!-- More document links as needed -->
+        </ul>
+      </div>
+    </section>
+    <section class="public-downloads" id="publicDownloads
+">
+<h2>Public Downloads</h2>
+<div class="downloads-list">
+<!-- Repeat this block for each downloadable form -->
+<article class="download-item">
+<h3>Risk and Release Form</h3>
+<p>Description for the Risk and Release form. [Optional]</p>
+<a href="Documents/risk-release-form.pdf" target="_blank" class="download-link">Download Form</a>
+</article>
+<article class="download-item">
+<h3>Video/Photo Release Form</h3>
+<p>Description for the Video/Photo Release form. [Optional]</p>
+<a href="Documents/video-photo-release-form.pdf" target="_blank" class="download-link">Download Form</a>
+</article>
+<!-- Add more download items as needed -->
+</div>
+</section>
+</div>
+</section>
+  <footer>
+    MohamedManssour © 2024
+  </footer>
+</div>
+
+</body>
+</html>
