@@ -808,6 +808,33 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-size: 0.9rem;
 }
+/* ... existing styles ... */
+
+/* Content Section Styles */
+.content-section {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.content-section h2 {
+  margin-bottom: 20px;
+  font-size: 2.4rem;
+}
+
+.flyer-image-container {
+  margin: auto;
+  max-width: 600px; /* Adjust width as necessary */
+}
+
+.flyer-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ... existing styles ... */
+
 
 /* Responsive Grid for Image Gallery */
 @media (max-width: 768px) {
